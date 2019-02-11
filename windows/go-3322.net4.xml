@@ -1,0 +1,15 @@
+<configuration>
+	<!-- window 服務 id 必須 唯一 -->
+	<id>go-3322</id>
+	<!-- 顯示的服務名稱 -->
+	<name>go-3322</name>
+	<!-- 服務描述信息 -->
+	<description>auto update a for 3322 domain</description>
+	<!-- 設置工作目錄 -->
+	<workingdirectory>%BASE%</workingdirectory>
+	<!-- 服務啓動的 進程 -->
+	<executable>%BASE%\go-3322.exe</executable>
+	<!-- 啓動服務時 傳給進程的 參數 -->
+	<startargument>daemon</startargument>
+	<log mode="none"/>
+</configuration>
