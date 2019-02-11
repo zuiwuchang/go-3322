@@ -4,15 +4,17 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io/ioutil"
-	"king-go/timer"
 	"log"
 	"net/http"
 	"strings"
 	"time"
+
+	"gitlab.com/king011/king-go/timer"
 )
 
 const (
-	ConfigureFile = "go-3322.json"
+	// ConfigureFile 配置檔案 名稱
+	ConfigureFile = "go-3322.jsonnet"
 )
 
 func main() {

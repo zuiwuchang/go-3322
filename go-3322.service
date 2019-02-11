@@ -1,0 +1,12 @@
+[Unit]
+Description=go-3322 Service
+After=network.target
+ 
+[Service]
+#User=go-3322
+Type=simple
+ExecStart=/opt/go-3322/go-3322
+KillMode=control-group
+Restart=on-failure
+
+[Install]
