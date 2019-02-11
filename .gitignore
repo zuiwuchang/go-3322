@@ -14,5 +14,5 @@
 .glide/
 
 
-go-3322
-go-3322.json
+/go-3322
+/version/version.go

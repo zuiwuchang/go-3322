@@ -2,12 +2,16 @@ package main
 
 import (
 	"encoding/base64"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"runtime"
 	"strings"
 	"time"
+
+	"github.com/zuiwuchang/go-3322/version"
 
 	"gitlab.com/king011/king-go/timer"
 )
@@ -18,19 +22,32 @@ const (
 )
 
 func main() {
-	cnf, e := initConfigure()
-	if e != nil {
-		log.Fatalln(e)
-	}
+	var v, h bool
+	flag.BoolVar(&v, "v", false, "display version")
+	flag.BoolVar(&h, "h", false, "display help")
+	flag.Parse()
+	if h {
+		flag.PrintDefaults()
+	} else if v {
+		fmt.Println(runtime.GOOS, runtime.GOARCH)
+		fmt.Println(version.Tag)
+		fmt.Println(version.Commit)
+		fmt.Println(version.Date)
+	} else {
+		cnf, e := initConfigure()
+		if e != nil {
+			log.Fatalln(e)
+		}
 
-	duration, e := timer.ToDuration(cnf.Timer)
-	if e != nil {
-		log.Fatalln(e)
-	}
+		duration, e := timer.ToDuration(cnf.Timer)
+		if e != nil {
+			log.Fatalln(e)
+		}
 
-	for {
-		doWork()
-		time.Sleep(duration)
+		for {
+			doWork()
+			time.Sleep(duration)
+		}
 	}
 }
 
